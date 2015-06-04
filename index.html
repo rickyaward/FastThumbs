@@ -13,7 +13,7 @@
 
 <body>
 
-<div class="container-fluid outerdiv" ng-app="myApp" ng-controller="MovieController">
+<!-- <div class="container-fluid outerdiv" ng-app="myApp" ng-controller="MovieController">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -80,7 +80,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- Begin coding for Library API  -->
 
@@ -101,24 +101,31 @@
                 <img ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : 'http://imdb.wemakesites.net/api/1.0/img/?url='+details.Poster }}" class="thumbnail animated flip book-cover">
 
                 <span class="span-outer2">
-          <a href="http://imdb.com/title/{{ details.imdbID }}" target="_blank">{{ details.Title }}</a>
+          <a href="http://imdb.com/title/{{ details.imdbID }}" target="_blank">{{ sourceResource.title }}</a>
 
-        </span>, {{ details.Author }}
-                <p><strong>Date:</strong> {{ details.Date }} ({{ details.Format }})</p>
-                <p>{{ details.Description }}</p>
+        </span>, {{ sourceResource.physicalMedium }}
+                <p><strong>Date:</strong> {{ sourceResource.date.begin }} ({{ sourceResource.format }})</p>
+                <p>{{ sourceResource.description }}</p>
                 <p class="outer-p-3">
                     <div class="inner-p-2">
-                        <span class="label label-primary">Publisher :</span> {{ details.Publisher }}
+                        <span class="label label-primary">Publisher :</span> {{ sourceResource.publisher }}
                     </div>
                     <div class="inner-p-2">
-                        <span class="label label-primary">Contributor :</span> {{ details.Contributor }}
+                        <span class="label label-primary">Contributor :</span> {{ sourceResource.contributor }}
                     </div>
                     <div class="inner-p-2">
-                        <span class="label label-primary">Subject :</span> {{ details.Subject }}
+                        <span class="label label-primary">Subject :</span> {{ sourceResource.subject.name }}
                     </div>
                 </p>
-
-                
+                 <p class="outer-p-2" style="margin-top: 35px">
+                    <a ng-href="https://www.youtube.com/results?search_query={{ details.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Search For Movies!</a>
+                    <span class="divider"></span>
+                    <a ng-href="http://catalog.hcplc.org/polaris/search/default.aspx?type=Advanced{{ details.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Search Local Library!</a>
+                    <span class="divider"></span>
+                    <a ng-href="http://www.bing.com/search?q=books&go=Submit&qs=n&form=QBLH&scope=web&pq=books&sc=8-5&sp=-1&sk=&cvid=59bd58361eeb40e8b3b3aa11b8cca7fb{{ details.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Search Online!</a>
+                    <span class="divider"></span>
+                    <a ng-href="http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddvd&field-keywords=Apollo%2013{{ details.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Buy the Book!</a>
+                </p>
             </div>
             <div ng-if="details.Response==='False'">
                 No results found.
@@ -130,7 +137,7 @@
                 <hr>
                 <ul class="rel-results2">
                     <li ng-repeat="book in related.Search">
-                        <a href="#" id="{{ $index + 1 }}" ng-click="update(book)">{{ book.Title }}</a>, {{ book.Date }}
+                        <a href="#" id="{{ $index + 1 }}" ng-click="update(book)">{{ sourceResource.title }}</a>, {{ sourceResource.date.begin }}
                     </li>
                 </ul>
             </div>
