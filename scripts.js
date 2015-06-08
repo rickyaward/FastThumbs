@@ -61,10 +61,10 @@ angular.module('myApp2', [])
 
         function fetch() { 
 
-            $http.get("http://api.dp.la/v2/items/?q="+ $scope.search +"&api_key=13ecd79a26ee7a3ca1a6a12ae0ae38c2" )
+            $http.get("http://api.dp.la/v2/items?q="+ $scope.search +"&api_key=13ecd79a26ee7a3ca1a6a12ae0ae38c2" )
                 .success(function(response) {
-                    $scope.sourceResource = response;
-                    console.log(response);
+                    $scope.sourceResource = response.docs;
+                    console.log(response.docs);
                 });
         }
 
