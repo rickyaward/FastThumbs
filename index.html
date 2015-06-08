@@ -9,6 +9,29 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="assets/animate.css" />
 <link type="text/css" rel="stylesheet" href="style.css" />
+<!-- load the jQuery and require.js libraries -->
+              <script type="text/javascript" src="alohaeditor-1.3.0-cdn/lib/require.js"></script>
+              <script type="text/javascript" src="alohaeditor-1.3.0-cdn/lib/vendor/jquery-1.7.2.js"></script>
+ 
+              <!-- load the Aloha Editor core and some plugins -->
+              <script src="alohaeditor-1.3.0-cdn/lib/aloha.js"
+                                   data-aloha-plugins="common/ui,
+                                                        common/format,
+                                                        common/list,
+                                                        common/link,
+                                                        common/highlighteditables">
+              </script>
+               
+              <!-- load the Aloha Editor CSS styles -->
+              <link href="alohaeditor-1.3.0-cdn/css/aloha.css" rel="stylesheet" type="text/css" />
+ 
+              <!-- make all elements with class="editable" editable with Aloha Editor -->
+              <script type="text/javascript">
+                     Aloha.ready( function() {
+                            var $ = Aloha.jQuery;
+                            $('.editable').aloha();
+                     });
+              </script>
 </head>
 
 <body>
@@ -140,6 +163,25 @@
                         <a href="#" id="{{ $index + 1 }}" ng-click="update(book)">{{ sourceResource.title }}</a>, {{ sourceResource.date.begin }}
                     </li>
                 </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+            <h1 class="editable">Aloha Editor</h1>
+              <p class="editable">Feel free to take notes in the text area as you conduct your research.</p> 
+              <div class="editable">
+                     <p>You can even edit all of this title text for your convenience.</p>
+                     <ul>
+                            <li>Simply Click and type to make changes.</li>
+                            <li>Thank you for using our App.</li>
+                     </ul>
+              </div>
+              <textarea class="editable">An editable text area...</textarea>
             </div>
         </div>
     </div>

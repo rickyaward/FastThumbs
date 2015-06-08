@@ -123,6 +123,12 @@ ul.rel-results {
     margin: 2px;
 }
 
+textarea {
+    width: 25em;
+    height: 10em;
+    margin: auto;
+}
+
 footer {
     margin-bottom: 40px;
 }
