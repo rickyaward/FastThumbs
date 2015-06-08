@@ -124,42 +124,42 @@
             <span class="input-group-addon bar-style2"><i class="glyphicon glyphicon-search"></i></span>
         </div>
         <div id="main-info" class="col-md-8">
-            <div ng-if="!sourceResource">
+            <div ng-if="!stuff">
                 Loading results...
             </div>
 
-            <div ng-if="sourceResource.Response==='True'">
+            <div ng-if="stuff.Response==='True'">
 
-                <img ng-src="{{ sourceResource.type=='N/A' ? 'http://placehold.it/150x220&text=N/A' : 'http://api.dp.la/v2/items?q=&api_key=13ecd79a26ee7a3ca1a6a12ae0ae38c2/?url='+sourceResource.type }}" class="thumbnail animated flip book-image">
+                <img ng-src="{{ stuff.sourceResource.type=='N/A' ? 'http://placehold.it/150x220&text=N/A' : 'http://api.dp.la/v2/items?q=&api_key=13ecd79a26ee7a3ca1a6a12ae0ae38c2/?url='+stuff.sourceResource.type }}" class="thumbnail animated flip book-image">
 
                 <span class="span-outer2">
-          <a href="http://api.dp.la/v2/items?q=&api_key=13ecd79a26ee7a3ca1a6a12ae0ae38c2/{{ sourceResource.title }}" target="_blank">{{ sourceResource.title }}</a>
+          <a href="http://api.dp.la/v2/items?q=&api_key=13ecd79a26ee7a3ca1a6a12ae0ae38c2/{{ stuff.sourceResource.title }}" target="_blank">{{ stuff.sourceResource.title }}</a>
 
-        </span>, {{ sourceResource.physicalMedium }}
-                <p><strong>Date:</strong> {{ sourceResource.date.begin }} ({{ originalRecord.format }})</p>
+        </span>, {{ stuff.sourceResource.physicalMedium }}
+                <p><strong>Date:</strong> {{ stuff.sourceResource.date.begin }} ({{ stuff.originalRecord.format }})</p>
                 <p>{{ originalRecord.description }}</p>
                 <p class="outer-p-3">
                     <div class="inner-p-2">
-                        <span class="label label-primary">Publisher :</span> {{ originalRecord.publisher }}
+                        <span class="label label-primary">Publisher :</span> {{ stuff.originalRecord.publisher }}
                     </div>
                     <div class="inner-p-2">
-                        <span class="label label-primary">Contributor :</span> {{ originalRecord.contributor }}
+                        <span class="label label-primary">Contributor :</span> {{ stuff.originalRecord.contributor }}
                     </div>
                     <div class="inner-p-2">
-                        <span class="label label-primary">Subject :</span> {{ sourceResource.subject.name }}
+                        <span class="label label-primary">Subject :</span> {{ stuff.sourceResource.subject.name }}
                     </div>
                 </p>
                  <p class="outer-p-2" style="margin-top: 35px">
-                    <a ng-href="https://www.youtube.com/results?search_query={{ sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">Search For Movies!</a>
+                    <a ng-href="https://www.youtube.com/results?search_query={{ stuff.sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">Search For Movies!</a>
                     <span class="divider"></span>
-                    <a ng-href="http://catalog.hcplc.org/polaris/search/default.aspx?type=Advanced{{ sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">Search Local Library!</a>
+                    <a ng-href="http://catalog.hcplc.org/polaris/search/default.aspx?type=Advanced{{ stuff.sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">Search Local Library!</a>
                     <span class="divider"></span>
-                    <a ng-href="http://www.bing.com/search?q=books&go=Submit&qs=n&form=QBLH&scope=web&pq=books&sc=8-5&sp=-1&sk=&cvid=59bd58361eeb40e8b3b3aa11b8cca7fb{{ sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">Search Online!</a>
+                    <a ng-href="http://www.bing.com/search?q=books&go=Submit&qs=n&form=QBLH&scope=web&pq=books&sc=8-5&sp=-1&sk=&cvid=59bd58361eeb40e8b3b3aa11b8cca7fb{{ stuff.sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">Search Online!</a>
                     <span class="divider"></span>
-                    <a ng-href="http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddvd&field-keywords=Apollo%2013{{ sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">Buy the Book!</a>
+                    <a ng-href="http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddvd&field-keywords=Apollo%2013{{ stuff.sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">Buy the Book!</a>
                 </p>
             </div>
-            <div ng-if="sourceResource.Response==='False'">
+            <div ng-if="stuff.Response==='False'">
                 No results found.
             </div>
         </div>
