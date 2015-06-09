@@ -63,13 +63,19 @@ angular.module('myApp2', [])
 
             $http.get("http://api.dp.la/v2/items?q="+ $scope.search +"&api_key=13ecd79a26ee7a3ca1a6a12ae0ae38c2" )
                 .success(function(response) {
-                    $scope.stuff = response.docs;
+                    $scope.stuff = response.docs[0];
+                    console.log(response.docs[0]);
+                });
+
+            $http.get("http://api.dp.la/v2/items?q="+ $scope.search +"&api_key=13ecd79a26ee7a3ca1a6a12ae0ae38c2" )
+                .success(function(response) {
+                    $scope.related = response.docs;
                     console.log(response.docs);
                 });
         }
 
         $scope.update = function(book) {
-            $scope.search = book.Title;
+            $scope.search = book.title;
             $scope.change();
         };
 

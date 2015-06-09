@@ -66,6 +66,25 @@ ul.rel-results {
     margin: 2px;
 }
 
+.wrapper {
+  background-image: url(images/worldInHands.jpg);
+}
+
+.fields {
+    color: lightblue;
+}
+
+.btn {
+    color: yellow;
+    background-color: blue;
+    border-color: darkblue;
+    margin: 3px;
+}
+
+.resultsTitle {
+    color: blue;
+}
+
 .outer-p-2 {
     margin-top: 15px;
 }
@@ -76,6 +95,7 @@ ul.rel-results {
 
 .divider:before {
     content: "|";
+    color: lightblue;
 }
 
 /* Begin Styling for Book Search */
@@ -121,6 +141,19 @@ ul.rel-results {
 
 .inner-p-2 {
     margin: 2px;
+    color: lightblue;
+}
+
+.alohaTitle {
+    color: yellow;
+}
+
+.alohaSub {
+    color: lightblue;
+}
+
+.alohaText {
+    color: lightblue;
 }
 
 textarea {
