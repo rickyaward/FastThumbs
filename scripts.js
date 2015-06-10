@@ -61,7 +61,21 @@ angular.module('myApp2', [])
 
         function fetch() { 
 
-            $http.get("http://api.dp.la/v2/items?q="+ $scope.search +"&api_key=13ecd79a26ee7a3ca1a6a12ae0ae38c2" )
+            // imdb API call //
+            $http.get("http://www.omdbapi.com/?t=" + $scope.search)
+                .success(function(response) {
+                    $scope.details = response;
+                    console.log(response);
+                });
+
+            $http.get("http://www.omdbapi.com/?s=" + $scope.search)
+                .success(function(response) {
+                    $scope.related = response;
+                    console.log(response);
+                });
+
+            // DPLA - Digital Public Library of America API call //
+            $http.get("http://api.dp.la/v2/items?sourceResource.type=text&sourceResource.title="+ $scope.search +"&api_key=13ecd79a26ee7a3ca1a6a12ae0ae38c2" )
                 .success(function(response) {
                     $scope.stuff = response.docs[0];
                     console.log(response.docs[0]);

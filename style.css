@@ -1,3 +1,14 @@
+/*
+Color Palette:
+#4b604f = Pale Green; rgba(75, 96, 79, 1);
+#516e2b = Shreck Green; rgba(81, 110, 43, 1);
+#303030 = Charcoal; gba(48, 48, 48, 1);
+#072257 = Navy Blue; rgba(7, 34, 87, 1);
+#b6b6b6 = Light Gray; rgba(182, 182, 182, 1);
+#8391ab = Periwinkle; rgba(131, 145, 171, 1);
+#94b5ea = Baby Blue; rgba(148, 181, 234, 1);
+*/
+
 body {
     background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/bg-sky.png);
     background-repeat: repeat !important;
@@ -70,19 +81,31 @@ ul.rel-results {
   background-image: url(images/worldInHands.jpg);
 }
 
-.fields {
-    color: lightblue;
+.feedback {
+    color: #94b5ea;
+}
+
+.rel-results2 {
+    background: rgba(48, 48, 48, .5);
+    border-radius: 5%;
+}
+
+.label-primary {
+    color: yellow;
+    background-color: rgba(5, 95, 240, .5);
+    border-color: rgba(5, 95, 240, .5);
+    margin: 3px;
 }
 
 .btn {
     color: yellow;
-    background-color: blue;
-    border-color: darkblue;
+    background-color: rgba(5, 95, 240, .5);
+    border-color: rgba(5, 95, 240, .5);
     margin: 3px;
 }
 
 .resultsTitle {
-    color: blue;
+    color: #94b5ea;
 }
 
 .outer-p-2 {
@@ -95,7 +118,7 @@ ul.rel-results {
 
 .divider:before {
     content: "|";
-    color: lightblue;
+    color: #94b5ea;
 }
 
 /* Begin Styling for Book Search */
@@ -141,25 +164,7 @@ ul.rel-results {
 
 .inner-p-2 {
     margin: 2px;
-    color: lightblue;
-}
-
-.alohaTitle {
-    color: yellow;
-}
-
-.alohaSub {
-    color: lightblue;
-}
-
-.alohaText {
-    color: lightblue;
-}
-
-textarea {
-    width: 25em;
-    height: 10em;
-    margin: auto;
+    color: #94b5ea;
 }
 
 footer {
@@ -173,3 +178,4 @@ footer {
         display: none;
     }
 }
+

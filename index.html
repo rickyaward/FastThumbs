@@ -8,30 +8,9 @@
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="assets/animate.css" />
+<link type="text/css" rel="stylesheet" href="ajaxForm/form.css" />
 <link type="text/css" rel="stylesheet" href="style.css" />
-<!-- load the jQuery and require.js libraries -->
-              <script type="text/javascript" src="alohaeditor-1.3.0-cdn/lib/require.js"></script>
-              <script type="text/javascript" src="alohaeditor-1.3.0-cdn/lib/vendor/jquery-1.7.2.js"></script>
- 
-              <!-- load the Aloha Editor core and some plugins -->
-              <script src="alohaeditor-1.3.0-cdn/lib/aloha.js"
-                                   data-aloha-plugins="common/ui,
-                                                        common/format,
-                                                        common/list,
-                                                        common/link,
-                                                        common/highlighteditables">
-              </script>
-               
-              <!-- load the Aloha Editor CSS styles -->
-              <link href="alohaeditor-1.3.0-cdn/css/aloha.css" rel="stylesheet" type="text/css" />
- 
-              <!-- make all elements with class="editable" editable with Aloha Editor -->
-              <script type="text/javascript">
-                     Aloha.ready( function() {
-                            var $ = Aloha.jQuery;
-                            $('.editable').aloha();
-                     });
-              </script>
+
 </head>
 
 <body class="wrapper">
@@ -130,32 +109,34 @@
 
             <div ng-show="stuff">
 
-                <img ng-src="{{ stuff.sourceResource.type.image=='N/A' ? 'http://placehold.it/150x220&text=N/A' : '#' + stuff.sourceResource.type.image }}" class="thumbnail animated flip book-image">
+            <!-- image link to imdb -->
+                <img ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : 'http://imdb.wemakesites.net/api/1.0/img/?url='+details.Poster }}" class="thumbnail animated flip movie-poster">
 
+            <!-- Title Search on DPLA -->
                 <span class="span-outer2">
-          <a href="http://api.dp.la/v2/items?q=&api_key=13ecd79a26ee7a3ca1a6a12ae0ae38c2/{{ stuff.sourceResource.title }}" target="_blank">{{ stuff.sourceResource.title }}</a></span>
-                <p class="fields">{{ stuff.originalRecord.creator }}</p>
-                <p class="fields"><strong>Date:</strong> {{ stuff.sourceResource.date.begin }}</p> 
-                <p class="fields"><strong>Format:</strong> {{ stuff.sourceResource.format }}</p> 
-                <p class="fields"><strong>Description:</strong> {{ stuff.sourceResource.description[0] }}</p> 
+          <a href="http://api.dp.la/v2/items?q=&api_key=13ecd79a26ee7a3ca1a6a12ae0ae38c2/{{ stuff.sourceResource.title }}" target="_blank">{{ stuff.sourceResource.title[0] }}</a></span>
+                <p class="feedback">{{ stuff.sourceResource.creator[0] }}</p>
+                <p class="feedback"><strong>Date:</strong> {{ stuff.sourceResource.date.begin }}</p> 
+                <p class="feedback"><strong>Format:</strong> {{ stuff.sourceResource.format }}</p> 
+                <p class="feedback"><strong>Description:</strong> {{ stuff.sourceResource.description[0] }}</p> 
                 <p class="outer-p-3">
                     <div class="inner-p-2">
-                        <span class="label label-primary">Publisher :</span> {{ stuff.originalRecord.publisher }}
+                        <span class="label label-primary">Publisher :</span> {{ stuff.sourceResource.publisher[0] }}
                     </div>
                     <div class="inner-p-2">
-                        <span class="label label-primary">Contributor :</span> {{ stuff.originalRecord.contributor }}
+                        <span class="label label-primary">Contributor :</span> {{ stuff.sourceResource.contributor[0]*+OR+stuff.originalRecord.provider.name }}
                     </div>
                     <div class="inner-p-2">
-                        <span class="label label-primary">Subject :</span> {{ stuff.originalRecord.subject[0] }}
+                        <span class="label label-primary">Subject :</span> {{ stuff.sourceResource.subject[0]*+OR+stuff.originalRecord.subject }}
                     </div>
                 </p>
                  <p class="outer-p-2" style="margin-top: 35px">
                     <span class="divider"></span>
-                    <a ng-href="http://catalog.hcplc.org/polaris/search/default.aspx?type=Advanced{{ stuff.sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">Local Library</a>
+                    <a ng-href="http://catalog.hcplc.org/polaris/search/searchresults.aspx?ctx=1.1033.0.0.6&type=Keyword&term={{ stuff.sourceResource.title }}&by=KW&sort=PD&limit=TOM=*&query=&page=0" target="_blank" class="btn btn-default btn-xs btn-info">Local Library</a>
                     <span class="divider"></span>
                     <a ng-href="https://www.google.com/#q={{ stuff.sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">Google</a>
                     <span class="divider"></span>
-                    <a ng-href="http://www.bing.com/search?q=books&go=Submit&qs=n&form=QBLH&scope=web&pq=books&sc=8-5&sp=-1&sk=&cvid=59bd58361eeb40e8b3b3aa11b8cca7fb{{ stuff.sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">Bing</a>
+                    <a ng-href="http://www.bing.com/search?q={{ stuff.sourceResource.title }}&go=Submit&qs=n&form=QBLH&scope=web&pq=books&sc=8-5&sp=-1&sk=&cvid=59bd58361eeb40e8b3b3aa11b8cca7fb{{ stuff.sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">Bing</a>
                     <span class="divider"></span>
                     <a ng-href="http://babel.hathitrust.org/cgi/ls?field1=ocr;q1={{ stuff.sourceResource.title }};a=srchls" target="_blank" class="btn btn-default btn-xs btn-info">Hathi Trust Library!</a>
                     <span class="divider"></span>
@@ -181,7 +162,7 @@
                 <hr>
                 <ul class="rel-results2">
                     <li ng-repeat="book in related.Search">
-                        <a href="#" id="{{ $index + 1 }}" ng-click="update(book)">{{ book.title }}</a>, {{ book.year }}
+                        <a href="#" id="{{ $index + 1 }}" ng-click="update(book)">{{ stuff.sourceResource.title }}</a>, {{ stuff.sourceResource.date.begin }}
                     </li>
                 </ul>
             </div>
@@ -193,26 +174,52 @@
     <div class="container">
         <div class="row">
         <div class="col-md-12">
-            <h4 class="alohaTitle">Take Notes</h4>
-              <div class="editable alohaSub">
-                     <p>Feel free to take notes in the text area as you conduct your research.</p>
-                     <ul>
-                            <li>You can even edit all of this title text for your convenience.</li>
-                            <li>Thank you for using our App.</li>
-                     </ul>
-              </div>
-              <textarea id="alohaText" class="editable">An editable text area...</textarea>
+            
+            <p class="formSub">** Remember to send your data before refreshing the page **</p>
+            <form id="contact" name="contact" method="post" novalidate="novalidate">
+                <fieldset>
+                    <label for="email" id="email">Email<span class="required">*</span></label>
+                        <input type="text" name="email" id="email" size="30" value="" required="">
+
+                    <label for="subject" id="subject">Subject</label>
+                        <input type="text" name="subject" id="subject" size="30" value="">
+
+                        <h5 class="formTitle">Paste and Assemble your research data here</h5>
+                    <label for="Message" id="message">Notes<span class="required">*</span></label>
+                        <textarea class="notes" name="message" id="message" required=""></textarea>
+
+                    <label for="Answer" id="answer">Name the small house pet that says “<i>meow</i>“<span class="required">*</span></label>
+                        <input type="text" name="answer" value="" required=""></br>
+
+                        <input id="submit" type="submit" name="submit" value="Send">
+                </fieldset>
+            </form>
+
+            <div id="success">
+                <span class="green textcenter">
+                    <p>Your message was sent successfully! I will be in touch as soon as I can.</p>
+                </span>
             </div>
-        </div>
-    </div>
-</div>
+
+            <div id="error">
+                <span>
+                    <p>Something went wrong, try refreshing and submitting the form again.</p>
+                </span>
+            </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
 
 <footer>
 </footer>
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></scri -->pt>
 <script src="assets/wow.js"></script>
 <script type="text/javascript" src="scripts.js"></script>
+<script type="text/javascript" src="ajaxForm/form.js"></script>
 </body>
 </html>
