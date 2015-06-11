@@ -7,6 +7,10 @@ Color Palette:
 #b6b6b6 = Light Gray; rgba(182, 182, 182, 1);
 #8391ab = Periwinkle; rgba(131, 145, 171, 1);
 #94b5ea = Baby Blue; rgba(148, 181, 234, 1);
+#c0392b = Redish-Orange;
+#e9266d = Pink;
+#69c773 = Light Green;
+#EFF556 = Pale Yellow;
 */
 
 body {
@@ -69,20 +73,27 @@ ul.rel-results {
     font-size: 20px;
 }
 
-.outer-p {
-    margin-top: 10px;
-}
-
-.inner-p {
-    margin: 2px;
-}
-
 .wrapper {
   background-image: url(images/worldInHands.jpg);
 }
 
+.welcome:first-letter {
+    display:block;  
+    margin: -7px 6px 0 5px;  
+    float:left;  
+    color:#EFF556;  
+    font-size:3.0em;  
+    font-family:Georgia;  
+}
+
+.welcome {
+    color: #94b5ea;
+    margin-top: 20px;
+}
+
 .feedback {
     color: #94b5ea;
+    font-size: 1.75rem;
 }
 
 .rel-results2 {
@@ -91,7 +102,7 @@ ul.rel-results {
 }
 
 .label-primary {
-    color: yellow;
+    color: #EFF556;
     background-color: rgba(5, 95, 240, .5);
     border-color: rgba(5, 95, 240, .5);
     margin: 3px;
@@ -105,7 +116,18 @@ ul.rel-results {
 }
 
 .resultsTitle {
+    color: blue;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0px 2px 3px white;
+    margin-left: 25px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+}
+
+.resultsList {
     color: #94b5ea;
+    font-size: 14px;
 }
 
 .outer-p-2 {

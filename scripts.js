@@ -77,8 +77,8 @@ angular.module('myApp2', [])
             // DPLA - Digital Public Library of America API call //
             $http.get("http://api.dp.la/v2/items?sourceResource.type=text&sourceResource.title="+ $scope.search +"&api_key=13ecd79a26ee7a3ca1a6a12ae0ae38c2" )
                 .success(function(response) {
-                    $scope.stuff = response.docs[0];
-                    console.log(response.docs[0]);
+                    $scope.stuff = response.docs;
+                    console.log(response.docs);
                 });
 
             $http.get("http://api.dp.la/v2/items?q="+ $scope.search +"&api_key=13ecd79a26ee7a3ca1a6a12ae0ae38c2" )

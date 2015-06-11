@@ -26,9 +26,6 @@ $(function() {
                 required: "um...yea, you have to write something to send this form.",
                 minlength: "thats all? really?"
             },
-            answer: {
-                required: "sorry, wrong answer!"
-            }
         },
         submitHandler: function(form) {
             $(form).ajaxSubmit({
