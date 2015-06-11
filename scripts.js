@@ -20,19 +20,19 @@ angular.module('myApp2', [])
 
         function fetch() { 
 
-            imdb API call //
+            // imdb API call //
             $http.get("http://www.omdbapi.com/?t=" + $scope.search)
                 .success(function(response) {
                     $scope.details = response;
                     console.log(response);
                 });
 
-            // Google Images API call //
-            $http.get("https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + $scope.search)
-                .success(function(response) {
-                    $scope.details = response;
-                    console.log($scope.details);
-                });
+            // // Google Images API call //
+            // $http.get("https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + $scope.search)
+            //     .success(function(response) {
+            //         $scope.details = response;
+            //         console.log($scope.details);
+            //     });
 
             // DPLA - Digital Public Library of America API call //
             $http.get("http://api.dp.la/v2/items?sourceResource.type=text&sourceResource.title="+ $scope.search +"&api_key=13ecd79a26ee7a3ca1a6a12ae0ae38c2" )
@@ -48,13 +48,18 @@ angular.module('myApp2', [])
                 });
         }
 
-        $scope.update = function(book) {
-            $scope.search = book.title;
-            $scope.change();
-        };
 
-        $scope.select = function() {
-            this.setSelectionRange(0, this.value.length);
+            $scope.update = function(stuff) {
+                $scope.stuff = stuff.sourceResource.title;
+                // $scope.related = response.docs;
+                $scope.change();
+            };
+
+function (update);
+
+
+            $scope.select = function() {
+                this.setSelectionRange(0, this.value.length);
         }
 
         //Simple Text Rotator//

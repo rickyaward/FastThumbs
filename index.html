@@ -67,27 +67,25 @@
                     <div class="inner-p">
                         <span class="label label-primary">Subject :</span> {{ stuff[0].sourceResource.subject[0] }} {{ stuff[0].originalRecord.subject[0] }}
                     </div>
-                </p>
                  <p class="outer-p-2" style="margin-top: 35px">
-                    <span class="divider"></span>
+                    
                     <a ng-href="http://catalog.hcplc.org/polaris/search/searchresults.aspx?ctx=1.1033.0.0.6&type=Keyword&term={{ stuff.sourceResource.title }}&by=KW&sort=PD&limit=TOM=*&query=&page=0" target="_blank" class="btn btn-default btn-xs btn-info">Local Library</a>
-                    <span class="divider"></span>
+                    
                     <a ng-href="https://www.google.com/#q={{ stuff.sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">Google</a>
-                    <span class="divider"></span>
+                    
                     <a ng-href="http://www.bing.com/search?q={{ stuff.sourceResource.title }}&go=Submit&qs=n&form=QBLH&scope=web&pq=books&sc=8-5&sp=-1&sk=&cvid=59bd58361eeb40e8b3b3aa11b8cca7fb{{ stuff.sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">Bing</a>
-                    <span class="divider"></span>
-                    <a ng-href="http://babel.hathitrust.org/cgi/ls?field1=ocr;q1={{ stuff.sourceResource.title }};a=srchls" target="_blank" class="btn btn-default btn-xs btn-info">Hathi Trust Library!</a>
-                    <span class="divider"></span>
-                    <a ng-href="https://www.gutenberg.org/ebooks/search/?query={{ stuff.sourceResource.title }}&go=Go" target="_blank" class="btn btn-default btn-xs btn-info">Gutenberg Project</a>
-                    <br>
-                    <span class="divider"></span>
-                    <a ng-href="http://eresources.loc.gov/search~S9/?searchtype=Y&searcharg={{ stuff.sourceResource.title }}&searchscope=9&submit=SEARCH" target="_blank" class="btn btn-default btn-xs btn-info">Library of Congress</a>
-                    <span class="divider"></span>
+                    
+                    <a ng-href="http://babel.hathitrust.org/cgi/ls?field1=ocr;q1={{ stuff.sourceResource.title }};a=srchls" target="_blank" class="btn btn-default btn-xs btn-info">Hathi Trust</a>
+                    
+                    <a ng-href="https://www.gutenberg.org/ebooks/search/?query={{ stuff.sourceResource.title }}&go=Go" target="_blank" class="btn btn-default btn-xs btn-info">Gutenberg</a>
+                    
+                    <a ng-href="http://eresources.loc.gov/search~S9/?searchtype=Y&searcharg={{ stuff.sourceResource.title }}&searchscope=9&submit=SEARCH" target="_blank" class="btn btn-default btn-xs btn-info">Lib of Congress</a>
+                    
                     <a ng-href="https://openlibrary.org/search?q={{ stuff.sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">Open Library</a>
-                    <span class="divider"></span>
+                    
                     <a ng-href="http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddvd&field-keywords={{ stuff.sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">Amazon</a>
-                    <span class="divider"></span>
-                    <a ng-href="https://www.youtube.com/results?search_query={{ stuff.sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">Search For Movies!</a>
+                    
+                    <a ng-href="https://www.youtube.com/results?search_query={{ stuff.sourceResource.title }}" target="_blank" class="btn btn-default btn-xs btn-info">YouTube</a>
                 </p>
                 <p class="welcome">Welcome to Access Digital Library. We encourage you to utilize the search features on this site to look up books and articles to help you in your project. You can take some notes and copy and paste data into the form below. Only be sure to email it to yourself before you refresh the page. Again, welcome.</p>
             </div>
@@ -95,7 +93,7 @@
                 No results found.
             </div>
         </div>
-        <div id="related-results2" class="col-md-4 animated bounce related-results2">
+        <div id="related-results" class="col-md-4">
             <div class="resultsTitle">Related Results:</div>
             <div ng-show="related" class="resultsList"
                 <hr>
