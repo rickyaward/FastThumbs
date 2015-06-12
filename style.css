@@ -62,6 +62,7 @@ Color Palette:
 .inner-p {
     margin: 2px;
     color: #94b5ea;
+    font-size: 1.7rem;
 }
 
 .outer-p-2 {
@@ -83,8 +84,8 @@ Color Palette:
     border-color: rgba(5, 95, 240, .5);
     margin: 3px;
     display: inline-block;
-    width: 125px;
-    font-size: 1.5rem;
+    width: 150px;
+    font-size: 1.8rem;
 }
 
 .bar-style {
@@ -104,28 +105,37 @@ Color Palette:
     font-size: 20px;
 }
 
+.titleHead {
+    margin-bottom: 1px;
+    color: blue;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
 .feedback {
     color: #94b5ea;
-    font-size: 1.75rem;
+    font-size: 1.7rem;
+    margin: 0;
 }
 
 .wrapper {
   background-image: url(images/worldInHands.jpg);
+  background-repeat: none;
 }
 
 .welcome:first-letter {
     display:block;  
-    margin: -7px 6px 0 5px;  
+    margin: -3px 6px 0 5px;  
     float:left;  
     color:#EFF556;  
-    font-size:2.0em;  
+    font-size: 3.2rem;  
     font-family:Georgia;  
 }
 
 .welcome {
     color: #94b5ea;
     margin-top: 20px;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 
@@ -143,15 +153,14 @@ li a {
     background-color: rgba(5, 95, 240, .5);
     border-color: rgba(5, 95, 240, .5);
     margin: 3px;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     width: 100px;
 }
 
 .resultsTitle {
     color: blue;
-    font-size: 16px;
+    font-size: 2rem;
     font-weight: bold;
-    text-shadow: 0px 0px 5px white;
     margin-left: 25px;
     margin-bottom: 15px;
     text-decoration: underline;
@@ -159,7 +168,7 @@ li a {
 
 .resultsList {
     color: #EFF556;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
 footer {
