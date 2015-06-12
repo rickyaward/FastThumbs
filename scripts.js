@@ -55,12 +55,14 @@ angular.module('myApp2', [])
                 $scope.change();
             };
 
-function (update);
-
 
             $scope.select = function() {
                 this.setSelectionRange(0, this.value.length);
         }
+
+
+        //Wow//
+        new WOW().init();
 
         //Simple Text Rotator//
         $(".rotate").textrotator({
