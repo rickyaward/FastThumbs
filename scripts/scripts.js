@@ -48,7 +48,7 @@ angular.module('myApp2', [])
         }
 
         $scope.update = function(book) {
-            $scope.search = book.title;
+            $scope.search = book.sourceResource.title[0];
             $scope.change();
         };
 
@@ -64,5 +64,3 @@ angular.module('myApp2', [])
         });
 
     });
-
-
